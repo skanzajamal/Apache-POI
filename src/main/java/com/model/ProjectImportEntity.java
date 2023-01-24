@@ -7,7 +7,8 @@ import javax.persistence.*;
 
 @Data
 @NoArgsConstructor
-@Table(name = "project")
+@Entity
+@Table(name = "project_import")
 public class ProjectImportEntity {
 
         @Id

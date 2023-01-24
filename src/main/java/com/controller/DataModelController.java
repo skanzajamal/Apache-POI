@@ -19,4 +19,5 @@ public class DataModelController {
     public ProjectImportDto importResults(@RequestPart MultipartFile file) {
         return dataModelService.importResults(file);
     }
+
 }

@@ -13,8 +13,8 @@ import java.io.IOException;
 public class DataModelService {
     
     @Autowired
-    ProjectImportRepository     projectImportRepository;
-    
+    ProjectImportRepository projectImportRepository;
+
     public ProjectImportDto importResults(MultipartFile multipartFile)
     {
         ProjectImportDto importResult = new ProjectImportDto();
@@ -58,7 +58,6 @@ public class DataModelService {
     public ProjectImportDto parseAndCheck (Row row){
         ProjectImportDto dto = new ProjectImportDto();
         DataFormatter dataFormatter = new DataFormatter();
-
         dto.setKey(dataFormatter.formatCellValue(row.getCell(0)));
         dto.setName(dataFormatter.formatCellValue(row.getCell(1)));
         dto.setCategory(dataFormatter.formatCellValue(row.getCell(2)));
