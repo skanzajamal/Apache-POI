@@ -17,4 +17,6 @@ The purpose of this application is to read Excel files in Java using open source
 
 - press run or debug to start the application
 
-- the application will start on port 8080 and url http://localhost:/8080
+- the application will start on port 8081 and url http://localhost:/8081
+
+- http://localhost:8081/swagger-ui/index.html#
