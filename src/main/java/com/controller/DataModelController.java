@@ -1,16 +1,15 @@
 package com.controller;
 
+import com.model.ProjectImportEntity;
 import com.service.DataModelService;
 import com.dto.ProjectImportDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestPart;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @RestController
 @RequestMapping("/fileImport")
@@ -23,6 +22,12 @@ public class DataModelController {
     @NotNull
     public ProjectImportDto importResults(@RequestPart MultipartFile file) {
         return dataModelService.importResults(file);
+    }
+
+    // test function to verify if the data has been added from excelFile to database
+    @GetMapping(path = "/getImport", produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<ProjectImportEntity> getResult() {
+        return dataModelService.getImportResult();
     }
 
 }

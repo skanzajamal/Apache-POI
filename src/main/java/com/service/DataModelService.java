@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.List;
 
 @Service
 public class DataModelService {
@@ -73,6 +74,10 @@ public class DataModelService {
         ProjectImportEntity projectImportEntity = new ProjectImportEntity();
         BeanUtils.copyProperties(projectImportDto, projectImportEntity);
         projectImportRepository.save(projectImportEntity);
+    }
+
+    public List<ProjectImportEntity> getImportResult() {
+        return projectImportRepository.findAll();
     }
 
 } //ENDCLASS
