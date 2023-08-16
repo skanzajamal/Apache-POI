@@ -69,8 +69,7 @@ public class DataModelService {
         return dto;
     }
 
-    private void addProjectImport(ProjectImportDto projectImportDto)
-    {
+    private void addProjectImport(ProjectImportDto projectImportDto) {
         ProjectImportEntity projectImportEntity = new ProjectImportEntity();
         BeanUtils.copyProperties(projectImportDto, projectImportEntity);
         projectImportRepository.save(projectImportEntity);
