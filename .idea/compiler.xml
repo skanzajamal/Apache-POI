@@ -11,7 +11,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="FileImport" target="8" />
+      <module name="FileImport" target="11" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
