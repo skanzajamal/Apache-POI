@@ -1,7 +1,6 @@
 package com.controller;
 
 import com.FileImportApplicationTest;
-import com.repository.ProjectImportRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,9 +18,6 @@ public class DataModelControllerTest extends FileImportApplicationTest {
 
     @Autowired
     private WebApplicationContext webApplicationContext;
-
-    @Autowired
-    ProjectImportRepository projectImportRepository;
 
     @Test
     public void test() throws Exception {
@@ -43,7 +39,6 @@ public class DataModelControllerTest extends FileImportApplicationTest {
 
         var checkIfFileImported = dataModelController.getResult();
         Assertions.assertFalse(checkIfFileImported.isEmpty());
-
     }
 
 } //ENDCLASS
