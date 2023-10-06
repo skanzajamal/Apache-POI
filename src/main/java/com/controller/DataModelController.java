@@ -1,8 +1,8 @@
 package com.controller;
 
-import com.model.ProjectImportEntity;
+import com.model.EmployeeImportEntity;
 import com.service.DataModelService;
-import com.dto.ProjectImportDto;
+import com.dto.EmployeeImportDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -20,14 +20,14 @@ public class DataModelController {
     
     @PostMapping(path = "/import", consumes = MediaType.MULTIPART_FORM_DATA_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     @NotNull
-    public ProjectImportDto importResults(@RequestPart MultipartFile file) {
+    public EmployeeImportDto importResults(@RequestPart MultipartFile file) {
         return dataModelService.importResults(file);
     }
 
     // test function to verify if the data has been added from excelFile to database
-    @GetMapping(path = "/getImport", produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<ProjectImportEntity> getResult() {
-        return dataModelService.getImportResult();
+    @GetMapping(path = "/getImportResult", produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<EmployeeImportEntity> getResult(@RequestParam("page") int page, @RequestParam("size") int size) {
+        return dataModelService.getImportResult(page, size);
     }
 
 }

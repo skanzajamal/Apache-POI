@@ -22,7 +22,7 @@ public class DataModelControllerTest extends FileImportApplicationTest {
     @Test
     public void test() throws Exception {
 
-        MockMultipartFile fileImport = new MockMultipartFile("filename", "Book.xlsx", "application/vnd.ms-excel", new ClassPathResource("Book.xlsx").getInputStream());
+        MockMultipartFile fileImport = new MockMultipartFile("filename", "Employee_Sample_Data.xlsx", "application/vnd.ms-excel", new ClassPathResource("Employee_Sample_Data.xlsx").getInputStream());
         Assertions.assertNotNull(fileImport);
 
         MockMvc mockMvc = MockMvcBuilders.
@@ -37,7 +37,7 @@ public class DataModelControllerTest extends FileImportApplicationTest {
         var result = dataModelController.importResults(fileImport);
         Assertions.assertNotNull(result);
 
-        var checkIfFileImported = dataModelController.getResult();
+        var checkIfFileImported = dataModelController.getResult(1, 10);
         Assertions.assertFalse(checkIfFileImported.isEmpty());
     }
 

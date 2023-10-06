@@ -1,9 +1,14 @@
-CREATE TABLE project_import (
+CREATE TABLE employee_import (
   id            INTEGER       NOT NULL,
-  name          VARCHAR(64)   NOT NULL,
-  key           VARCHAR(64)   NOT NULL,
-  category      VARCHAR(16)   NOT NULL,
-  comment       VARCHAR(2048),
-  sub_category   VARCHAR(16),
+  job_title     VARCHAR(64)   NOT NULL,
+  department    VARCHAR(64)   NOT NULL,
+  business_unit VARCHAR(64)   NOT NULL,
+  gender        VARCHAR(16),
+  hire_date     VARCHAR(256)  NOT NULL,
+  annual_salary VARCHAR(64),
+  bonus         VARCHAR(16),
+  country       VARCHAR(64),
+  city          VARCHAR(64),
+  exit_date     VARCHAR(256),
   PRIMARY KEY (id)
 );
