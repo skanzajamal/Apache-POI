@@ -3,13 +3,11 @@ package com.dto;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-
 @Data
 @NoArgsConstructor
 public class EmployeeImportDto {
 
-    int id;
+    private int id;
 
     private String jobTitle;
 

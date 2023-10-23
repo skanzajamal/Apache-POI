@@ -13,7 +13,7 @@ public class EmployeeImportEntity {
 
         @Id
         @GeneratedValue(strategy = GenerationType.SEQUENCE)
-        int id;
+        private int id;
 
         @Column(nullable = false, length = 64)
         private String jobTitle;

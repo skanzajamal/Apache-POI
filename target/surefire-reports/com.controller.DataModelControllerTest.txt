@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.controller.DataModelControllerTest
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 33.054 s - in com.controller.DataModelControllerTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 31.383 s - in com.controller.DataModelControllerTest
