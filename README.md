@@ -9,7 +9,7 @@ The purpose of this application is to read Excel files using open source library
 
 # Build Instructions
 
-- Install IntellijIdea
+- Install Intellij Idea
 
 - Install JDK 11
 
