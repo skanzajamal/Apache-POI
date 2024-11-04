@@ -3,6 +3,8 @@ package com.service;
 import com.dto.EmployeeImportDto;
 import com.model.EmployeeImportEntity;
 import com.repository.EmployeeImportRepository;
+import com.specification.SearchRequest;
+import com.specification.SpecificationCriteria;
 import org.apache.poi.ss.usermodel.*;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +22,9 @@ public class DataModelService {
     
     @Autowired
     EmployeeImportRepository employeeImportRepository;
+
+    @Autowired
+    SpecificationCriteria specificationCriteria;
 
     public EmployeeImportDto importResults(MultipartFile multipartFile)
     {
@@ -64,16 +69,18 @@ public class DataModelService {
     public EmployeeImportDto parseAndCheck (Row row){
         EmployeeImportDto dto = new EmployeeImportDto();
         DataFormatter dataFormatter = new DataFormatter();
-        dto.setJobTitle(dataFormatter.formatCellValue(row.getCell(0)));
-        dto.setDepartment(dataFormatter.formatCellValue(row.getCell(1)));
-        dto.setBusinessUnit(dataFormatter.formatCellValue(row.getCell(2)));
-        dto.setGender((dataFormatter.formatCellValue(row.getCell(3))));
-        dto.setHireDate(dataFormatter.formatCellValue(row.getCell(4)));
-        dto.setAnnualSalary(dataFormatter.formatCellValue(row.getCell(5)));
-        dto.setBonus(dataFormatter.formatCellValue(row.getCell(6)));
-        dto.setCountry(dataFormatter.formatCellValue(row.getCell(7)));
-        dto.setCity(dataFormatter.formatCellValue(row.getCell(8)));
-        dto.setExitDate(dataFormatter.formatCellValue(row.getCell(9)));
+        dto.setFullName(dataFormatter.formatCellValue(row.getCell(0)));
+        dto.setJobTitle(dataFormatter.formatCellValue(row.getCell(1)));
+        dto.setDepartment(dataFormatter.formatCellValue(row.getCell(2)));
+        dto.setBusinessUnit(dataFormatter.formatCellValue(row.getCell(3)));
+        dto.setGender((dataFormatter.formatCellValue(row.getCell(4))));
+        dto.setAge(Integer.valueOf(dataFormatter.formatCellValue(row.getCell(5))));
+        dto.setHireDate(dataFormatter.formatCellValue(row.getCell(6)));
+        dto.setAnnualSalary(dataFormatter.formatCellValue(row.getCell(7)));
+        dto.setBonus(dataFormatter.formatCellValue(row.getCell(8)));
+        dto.setCountry(dataFormatter.formatCellValue(row.getCell(9)));
+        dto.setCity(dataFormatter.formatCellValue(row.getCell(10)));
+        dto.setExitDate(dataFormatter.formatCellValue(row.getCell(11)));
         return dto;
     }
 
@@ -86,6 +93,10 @@ public class DataModelService {
     public List<EmployeeImportEntity> getImportResult(int pageNo, int pageSize) {
         Pageable pageable = PageRequest.of(pageNo, pageSize);
         return employeeImportRepository.findAll(pageable).getContent();
+    }
+
+    public List<EmployeeImportEntity> getFilteredResult(SearchRequest request) {
+        return specificationCriteria.getListByCriteria(request);
     }
 
 } //ENDCLASS

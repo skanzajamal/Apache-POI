@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 
 
 @Repository
-public interface EmployeeImportRepository extends JpaRepository<EmployeeImportEntity, String> {
+public interface EmployeeImportRepository extends JpaRepository<EmployeeImportEntity, Integer> {
 
 }

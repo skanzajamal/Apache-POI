@@ -16,6 +16,9 @@ public class EmployeeImportEntity {
         private int id;
 
         @Column(nullable = false, length = 64)
+        private String fullName;
+
+        @Column(nullable = false, length = 64)
         private String jobTitle;
 
         @Column(nullable = false, length = 64)
@@ -26,6 +29,9 @@ public class EmployeeImportEntity {
 
         @Column
         private String gender;
+
+        @Column
+        private Integer age;
 
         @Column(nullable = false, length = 256)
         private String hireDate;   //timestamp

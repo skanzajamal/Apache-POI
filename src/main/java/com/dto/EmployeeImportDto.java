@@ -9,6 +9,8 @@ public class EmployeeImportDto {
 
     private int id;
 
+    private String fullName;
+
     private String jobTitle;
 
     private String department;
@@ -16,6 +18,8 @@ public class EmployeeImportDto {
     private String businessUnit;
 
     private String gender;
+
+    private Integer age;
 
     private String hireDate;   //timestamp
 
